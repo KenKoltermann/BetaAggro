@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<title>Homeuser</title>
+<style> 
+input[type=text] {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: orange;
+    background-image: url('hankface.jpg');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    
+}
+input[type=text]:focus {
+    width: 100%;
+}
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body id="myPage">
+
+
+<!-- Navbar -->
+<div class="w3-top">
+ <ul class="w3-navbar w3-theme-d2 w3-left-align">
+  <li class="w3-hide-medium w3-hide-large w3-opennav w3-right">
+    <a class="w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+  </li>
+  <li><a href="http://localhost:5000/home" class="w3-white"><i class="fa fa-home w3-margin-right"></i>Beta Aggro Home</a></li>
+  <li class="w3-hide-small"><a href="http://localhost:5000/aboutus" class="w3-hover-white">About Us</a></li>
+  <li class="w3-hide-small"><a href="http://localhost:5000/contactus" class="w3-hover-white">Contact Us</a></li>
+  <li class="w3-hide-small"><a href="http://localhost:5000/porpoise" class="w3-hover-white">Statement of Porpoise</a></li>
+  
+  <li class="w3-hide-small w3-dropdown-hover">
+    <a href="javascript:void(0);" title="Notifications">Categories <i class="fa fa-caret-down"></i></a>     
+    <div class="w3-dropdown-content w3-white w3-card-4">
+      <a href="http://localhost:5000/nightlife">Nightlife</a>
+      <a href="http://localhost:5000/entertainment">Entertainment</a>
+      <a href="http://localhost:5000/dining">Dining</a>
+      <a href="http://localhost:5000/aboutus">Freddy's Ice Cream Shop</a>
+      <a href="http://localhost:5000/aboutus">Thien's Bungalo</a>
+      <a href="http://localhost:5000/aboutus">Ken's Taco Shack</a>
+      <a href="http://localhost:5000/aboutus">Christian's Party Store</a>
+      <a href="http://localhost:5000/aboutus">Zach's Crazy Churros</a>
+    </div>
+  </li>
+  
+  <li class="w3-hide-small w3-right"><a href="http://localhost:5000/searchuser" class="w3-hover-teal" title="Search"><i class="fa fa-search"></i></a></li>
+  {% if current_user.is_authenticated %}
+		<li class="w3-hide-small w3-right"><a href="http://localhost:5000/logout" class="w3-hover-white">Logout</a></li>
+   {% else %}
+		<li class="w3-hide-small w3-right"><a href="http://localhost:5000/login" class="w3-hover-white">Login</a></li>
+   {% endif %}
+  <li class="w3-hide-small w3-right">
+	<a href="javascript:void(0);" class="w3-hover-white">
+		{% if current_user.is_authenticated %}
+			Welcome, {{ current_user.firstname }}!
+		{% else %}
+			Welcome, Guest.
+		{% endif %}
+	</a>
+  </li>
+ </ul>
+
+  
+</div>
+<br><br> 
+<img src="/resources/porpoise.jpg" style="height:100%;width:100%;"/>
+
+</body>
+</html>
